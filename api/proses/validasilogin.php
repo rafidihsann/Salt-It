@@ -26,6 +26,6 @@
     }
 
     else {
-            header("location:index.php?pesan=gagal");
+            header("location:login.php?pesan=gagal");
         }
 ?>

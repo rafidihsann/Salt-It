@@ -36,7 +36,7 @@
     include '../koneksi.php';
     session_start();
         if (!isset($_SESSION['status'])) {
-            header("location:../login/index.php");
+            header("location:../login/login.php");
             exit();
         }
 
@@ -51,7 +51,7 @@
     ?>
 
     <nav class="top-nav container-mobile">
-        <a href="../login/index.php" class="btn-back">
+        <a href="../login/login.php" class="btn-back">
             <i class="bi bi-arrow-left"></i>
             <span>Keluar</span>
         </a>

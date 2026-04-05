@@ -4,7 +4,7 @@ include '../koneksi.php';
 
 // Cek login
 if (!isset($_SESSION['status'])) {
-    header("location:../login/index.php");
+    header("location:../login/login.php");
     exit();
 }
 
