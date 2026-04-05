@@ -1,5 +1,4 @@
 <?php
-session_start();
 include __DIR__ . '/../koneksi.php';
 
 // Pastikan hanya user yang login yang bisa akses

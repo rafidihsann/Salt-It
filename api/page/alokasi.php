@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -25,14 +28,7 @@
     </style>
 </head>
 <body>
-    <?php
-    include __DIR__ . '/../koneksi.php';
-    session_start();
-        if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
-            exit();
-        }
-    
+    <?php    
         // 1. Menghitung Total Produksi
         $q_prod = mysqli_query($connect, "SELECT SUM(jumlah) as total FROM produksi");
         $total_produksi = mysqli_fetch_assoc($q_prod)['total'] ?? 0;
