@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../koneksi.php';
+include __DIR__ . '/../koneksi.php';
 
 // Ambil data dari form
 $id       = isset($_POST['id']) ? $_POST['id'] : '';

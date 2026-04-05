@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../koneksi.php';
+include __DIR__ . '/../koneksi.php';
 
 // Cek login
 if (!isset($_SESSION['status'])) {

@@ -1,6 +1,6 @@
 <?php
 // proses_pull_online.php
-include '../koneksi.php';
+include __DIR__ . '/../koneksi.php';
 
 // Simulasi data dari API Marketplace (Shopee/Tokopedia)
 $id_user_online = 5; // Berdasarkan data user admin online Anda

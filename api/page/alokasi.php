@@ -26,7 +26,7 @@
 </head>
 <body>
     <?php
-    include '../koneksi.php';
+    include __DIR__ . '/../koneksi.php';
     session_start();
         if (!isset($_SESSION['status'])) {
             header("location:../login/login.php");

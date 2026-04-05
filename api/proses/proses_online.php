@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../koneksi.php';
+include __DIR__ . '/../koneksi.php';
 
 // Pastikan hanya user yang login yang bisa akses
 if (!isset($_SESSION['status'])) {

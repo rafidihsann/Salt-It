@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../koneksi.php';
+include __DIR__ . '/../koneksi.php';
 
 // 1. Tangkap data dari form
 $platform     = $_POST['platform']; // Nilainya 'offline'
