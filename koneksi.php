@@ -1,11 +1,13 @@
 <?php
-    $hostname = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "telurasin";
+$host     = getenv('MYSQLHOST');
+$user     = getenv('MYSQLUSER');
+$password = getenv('MYSQLPASSWORD');
+$db_name  = getenv('MYSQLDATABASE');
+$port     = getenv('MYSQLPORT');
 
-    $connect = mysqli_connect($hostname, $username, $password, $database);
-    if (!$connect) {
-        die("Koneksi gagal: " . mysqli_connect_error());
-    }
+$connect = mysqli_connect($host, $user, $password, $db_name, $port);
+
+if (!$connect) {
+    die("Koneksi ke Gudang Railway Gagal!");
+}
 ?>

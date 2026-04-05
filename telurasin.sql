@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2026 at 02:20 PM
+-- Generation Time: Apr 05, 2026 at 04:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +34,14 @@ CREATE TABLE `alokasi_offline` (
   `waktu` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `alokasi_offline`
+--
+
+INSERT INTO `alokasi_offline` (`id`, `jumlah`, `keterangan`, `waktu`) VALUES
+(1, 5, 'toko aceng berkah', '2026-04-05'),
+(2, 267, 'toko aceng berkah', '2026-04-05');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +55,13 @@ CREATE TABLE `alokasi_online` (
   `waktu` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `alokasi_online`
+--
+
+INSERT INTO `alokasi_online` (`id`, `jumlah`, `keterangan`, `waktu`) VALUES
+(1, 167, 'stok marketplace', '2026-04-05');
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +74,16 @@ CREATE TABLE `produksi` (
   `keterangan` varchar(100) NOT NULL,
   `waktu` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `produksi`
+--
+
+INSERT INTO `produksi` (`id`, `jumlah`, `keterangan`, `waktu`) VALUES
+(1, 8, 'pagi', '2026-03-09'),
+(2, 10, '', '2026-04-05'),
+(3, 5, '', '2026-04-05'),
+(4, 2, '', '2026-04-05');
 
 -- --------------------------------------------------------
 
@@ -88,7 +113,11 @@ INSERT INTO `stokmentah` (`id`, `jumlah`, `tidak_lolos`, `jenis`, `keterangan`, 
 (7, 23, 2, 'masuk', 'tatang egg', '2026-03-02'),
 (8, 25, 4, 'masuk', 'tatang egg', '2026-03-02'),
 (9, 35, 6, 'masuk', 'abeng', '2026-03-02'),
-(10, 1, 0, 'keluar', 'ditilep asep buat makan', '2026-03-02');
+(10, 1, 0, 'keluar', 'ditilep asep buat makan', '2026-03-02'),
+(11, 8, 0, 'keluar', 'Produksi: pagi (Gagal QC: 0)', '2026-03-09'),
+(12, 10, 0, 'keluar', 'Produksi:  (Gagal QC: 0)', '2026-04-05'),
+(13, 5, 0, 'keluar', 'Produksi:  (Gagal QC: 0)', '2026-04-05'),
+(14, 2, 0, 'keluar', 'Produksi:  (Gagal QC: 0)', '2026-04-05');
 
 -- --------------------------------------------------------
 
@@ -106,6 +135,17 @@ CREATE TABLE `transaksi` (
   `id_user` int(11) NOT NULL,
   `keterangan` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `platform`, `jumlah_butir`, `total_harga`, `metode_bayar`, `id_user`, `keterangan`) VALUES
+(1, '2026-04-05 20:33:49', 'offline', 2, 6000.00, 'Tunai', 4, ''),
+(2, '2026-04-05 20:57:45', 'offline', 1, 3000.00, 'Tunai', 4, ''),
+(3, '2026-04-05 21:01:30', 'online', 1, 3000.00, 'QRIS', 5, '[SHIPPED] '),
+(4, '2026-04-05 21:09:36', 'online', 10, 30000.00, 'QRIS', 5, 'Shopee - QWERTY12345'),
+(5, '2026-03-16 21:26:30', 'offline', 5, 15000.00, 'Tunai', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -126,7 +166,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `password`, `role`) VALUES
 (1, 'owner@gmail.com', '123', 'owner'),
-(2, 'inventaris@gmail.com', '123', 'inventaris');
+(2, 'inventaris@gmail.com', '123', 'inventaris'),
+(4, 'adminoff@gmail.com', '123', 'offline'),
+(5, 'adminon@gmail.com', '123', 'online');
 
 --
 -- Indexes for dumped tables
@@ -177,37 +219,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `alokasi_offline`
 --
 ALTER TABLE `alokasi_offline`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `alokasi_online`
 --
 ALTER TABLE `alokasi_online`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `produksi`
 --
 ALTER TABLE `produksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `stokmentah`
 --
 ALTER TABLE `stokmentah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

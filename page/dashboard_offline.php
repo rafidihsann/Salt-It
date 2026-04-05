@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary-blue: #0d6efd;
@@ -49,27 +48,10 @@
     $total_terjual = mysqli_fetch_assoc($q_terjual)['total'] ?? 0;
 
     $sisa_stok = $total_alokasi - $total_terjual;
-
-    // 2. Data Grafik
-    $q_grafik = mysqli_query($connect, "
-        SELECT DATE(tanggal) as tgl, SUM(jumlah_butir) as butir 
-        FROM transaksi 
-        WHERE platform = 'offline' 
-        GROUP BY DATE(tanggal) 
-        ORDER BY DATE(tanggal) ASC 
-        LIMIT 7
-    ");
-
-    $labels = [];
-    $data_points = [];
-    while($row = mysqli_fetch_assoc($q_grafik)) {
-        $labels[] = date('d M', strtotime($row['tgl']));
-        $data_points[] = $row['butir'];
-    }
     ?>
 
     <nav class="top-nav container-mobile">
-        <a href="dashboard_offline.php" class="btn-back">
+        <a href="../login/login.php" class="btn-back">
             <i class="bi bi-arrow-left"></i>
             <span>Keluar</span>
         </a>
@@ -84,14 +66,6 @@
         </div>
 
         <div class="main-section">
-            
-            <div class="card-custom">
-                <h6 class="fw-bold mb-3"><i class="bi bi-graph-up-arrow me-2 text-primary"></i>Tren Penjualan (Butir)</h6>
-                <div class="chart-container">
-                    <canvas id="salesChart"></canvas>
-                </div>
-            </div>
-
             <div class="nota-print" id="notaArea">
                 <div style="text-align: center; margin-bottom: 15px;">
                     <strong>SALT IT - OFFLINE STORE</strong><br>
@@ -198,32 +172,6 @@
             updateNota(); // Pastikan data terbaru
             window.print();
         }
-
-        // Inisialisasi Grafik (Kode Anda tetap sama)
-        const ctx = document.getElementById('salesChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: <?php echo json_encode($labels); ?>,
-                datasets: [{
-                    label: 'Terjual (Butir)',
-                    data: <?php echo json_encode($data_points); ?>,
-                    borderColor: '#0d6efd',
-                    backgroundColor: 'rgba(13, 110, 253, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#0d6efd',
-                    pointRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
-            }
-        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
