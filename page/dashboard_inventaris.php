@@ -48,6 +48,18 @@
             <i class="bi bi-chevron-right ms-auto text-muted"></i>
         </a>
 
+        <!-- Menu Kelola Telur -->
+        <a href=".php" class="menu-card">
+            <div class="icon-circle bg-inventory">
+                <i class="bi bi-box-seam"></i>
+            </div>
+            <div class="menu-text">
+                <h6>Kelola Alokasi Stok Telur Asin</h6>
+                <p>Input alokasi stok telur asin untuk toko online & offline</p>
+            </div>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+        </a>
+
         <!-- Menu Kelola Akun -->
         <a href="kelolaakun.php" class="menu-card">
             <div class="icon-circle bg-account">

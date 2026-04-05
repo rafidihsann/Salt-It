@@ -42,16 +42,23 @@
     ?>
 
         <nav class="top-nav container-mobile">
-            <a href="dashboard_inventaris.php" class="btn-back">
-                <i class="bi bi-arrow-left"></i>
-                <span>Kembali</span>
-            </a>
-            <h6 class="m-0 fw-bold">Kelola Stok Telur Bebek</h6>
-            <div style="width: 24px;"></div>
-        </nav>
+        <a href="dashboard_inventaris.php" class="btn-back">
+            <i class="bi bi-arrow-left"></i>
+            <span>Kembali</span>
+        </a>
+        <h6 class="m-0 fw-bold ms-3">Kelola Stok Telur Bebek</h6>
+    </nav>
 
     <div class="container-mobile">
         
+        <div class="container my-3">
+            <div class="d-flex justify-content-end">
+                <a href="produksi.php" class="btn btn-success px-1 py-3">
+                    <i class="bi bi-plus-lg"></i> Input Produksi
+                </a>
+            </div>
+        </div>
+
         <div class="stok-card text-center">
             <span class="opacity-75 small">Total Stok Layak (QC Pass)</span>
             <h1 class="display-4 fw-bold m-0"><?php echo number_format($total_stok, 0, ',', '.'); ?></h1>

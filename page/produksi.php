@@ -33,7 +33,7 @@
     ?>
 
     <nav class="top-nav container-mobile">
-        <a href="dashboard_produksi.php" class="btn-back">
+        <a href="dashboard_inventaris.php" class="btn-back">
             <i class="bi bi-arrow-left"></i>
             <span>Kembali</span>
         </a>
