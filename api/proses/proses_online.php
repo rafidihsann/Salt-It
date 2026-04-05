@@ -4,7 +4,7 @@ include '../koneksi.php';
 
 // Pastikan hanya user yang login yang bisa akses
 if (!isset($_SESSION['status'])) {
-    header("location:../login/login.php");
+    header("location:../login/index.php");
     exit();
 }
 

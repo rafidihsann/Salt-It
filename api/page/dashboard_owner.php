@@ -36,6 +36,11 @@
 <body>
     <?php
     include '../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/index.php");
+            exit();
+        }
 
     // PBI039: Integration Testing - Mengambil data dari tabel produksi & transaksi
     // 1. Ringkasan Statistik

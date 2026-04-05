@@ -22,7 +22,7 @@
     include '../koneksi.php';
     session_start();
         if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
+            header("location:../login/index.php");
             exit();
         }
 
