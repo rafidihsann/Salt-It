@@ -48,8 +48,8 @@
             <i class="bi bi-chevron-right ms-auto text-muted"></i>
         </a>
 
-        <!-- Menu Kelola Telur -->
-        <a href=".php" class="menu-card">
+        <!-- Menu Kelola Alokasi Telur -->
+        <a href="alokasi.php" class="menu-card">
             <div class="icon-circle bg-inventory">
                 <i class="bi bi-box-seam"></i>
             </div>

@@ -20,10 +20,16 @@
 
     <?php
     include '../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/login.php");
+            exit();
+        }
 
-    // 1. Fungsi Mengambil Sisa Stok Telur Mentah Real-time
+    // 1. Fungsi Mengambil Sisa Stok Telur Mentah Lolos QC (Real-time)
+    // Rumus: (Jumlah Masuk - Tidak Lolos QC) - Jumlah Keluar
     $query_stok = "SELECT 
-        SUM(CASE WHEN jenis = 'masuk' THEN jumlah ELSE 0 END) - 
+        SUM(CASE WHEN jenis = 'masuk' THEN (jumlah - tidak_lolos) ELSE 0 END) - 
         SUM(CASE WHEN jenis = 'keluar' THEN jumlah ELSE 0 END) as stok_akhir 
         FROM stokmentah";
     

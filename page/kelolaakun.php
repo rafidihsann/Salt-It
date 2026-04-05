@@ -19,6 +19,11 @@
 <body>
     <?php
     include '../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/login.php");
+            exit();
+        }
 
     // Ambil semua data user
     $query_user = "SELECT * FROM user ORDER BY role ASC";
