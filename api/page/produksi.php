@@ -1,3 +1,11 @@
+<?php 
+    include __DIR__ . '/../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/login.php");
+            exit();
+        }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -19,13 +27,6 @@
 <body>
 
     <?php
-    include __DIR__ . '/../koneksi.php';
-    session_start();
-        if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
-            exit();
-        }
-
     // 1. Fungsi Mengambil Sisa Stok Telur Mentah Lolos QC (Real-time)
     // Rumus: (Jumlah Masuk - Tidak Lolos QC) - Jumlah Keluar
     $query_stok = "SELECT 

@@ -1,3 +1,11 @@
+<?php 
+    include __DIR__ . '/../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/login.php");
+            exit();
+        }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -35,13 +43,6 @@
 </head>
 <body>
     <?php
-    include __DIR__ . '/../koneksi.php';
-    session_start();
-        if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
-            exit();
-        }
-
     // PBI039: Integration Testing - Mengambil data dari tabel produksi & transaksi
     // 1. Ringkasan Statistik
     $q_prod_total = mysqli_query($connect, "SELECT SUM(jumlah) as total FROM produksi");

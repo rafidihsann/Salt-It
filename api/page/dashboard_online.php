@@ -1,3 +1,11 @@
+<?php 
+    include __DIR__ . '/../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/login.php");
+            exit();
+        }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -32,13 +40,6 @@
     </div>
 
     <?php
-    include __DIR__ . '/../koneksi.php';
-    session_start();
-        if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
-            exit();
-        }
-
     // 1. Hitung Stok Online Tersedia (PBI033 Integration)
     // Formula: Total Alokasi Online - Total Penjualan Online (id_user untuk admin online adalah 5 berdasarkan SQL)
     $q_alokasi = mysqli_query($connect, "SELECT SUM(jumlah) as total FROM alokasi_online");

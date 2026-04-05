@@ -1,3 +1,11 @@
+<?php 
+    include __DIR__ . '/../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/login.php");
+            exit();
+        }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -18,13 +26,6 @@
 </head>
 <body>
     <?php
-    include __DIR__ . '/../koneksi.php';
-    session_start();
-        if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
-            exit();
-        }
-
     // Ambil semua data user
     $query_user = "SELECT * FROM user ORDER BY role ASC";
     $result_user = mysqli_query($connect, $query_user);

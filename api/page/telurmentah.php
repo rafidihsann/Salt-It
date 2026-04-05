@@ -1,3 +1,11 @@
+<?php 
+    include __DIR__ . '/../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/login.php");
+            exit();
+        }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -18,13 +26,6 @@
 </style>
 <body>
 <?php
-    include __DIR__ . '/../koneksi.php';
-    session_start();
-        if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
-            exit();
-        }
-
     // Query Hitung Stok Real-time
     // Stok Akhir = (Semua jumlah masuk - semua tidak lolos qc) - semua jumlah keluar
     $query_total = "SELECT 

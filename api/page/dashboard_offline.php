@@ -1,3 +1,11 @@
+<?php 
+    include __DIR__ . '/../koneksi.php';
+    session_start();
+        if (!isset($_SESSION['status'])) {
+            header("location:../login/login.php");
+            exit();
+        }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -33,13 +41,6 @@
 <body>
 
     <?php
-    include __DIR__ . '/../koneksi.php';
-    session_start();
-        if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
-            exit();
-        }
-
     // 1. Hitung Stok Offline Tersedia
     $q_alokasi = mysqli_query($connect, "SELECT SUM(jumlah) as total FROM alokasi_offline");
     $total_alokasi = mysqli_fetch_assoc($q_alokasi)['total'] ?? 0;

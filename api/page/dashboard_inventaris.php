@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if (!isset($_SESSION['status'])) {
+        header("location:../login/login.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -19,14 +26,6 @@
     }
 </style>
 <body>
-    <?php 
-        session_start();
-        if (!isset($_SESSION['status'])) {
-            header("location:../login/login.php");
-            exit();
-        }
-    ?>
-
     <div class="container-mobile d-flex flex-column justify-content-center  min-vh-100">
         <div class="welcome-section">
             <div class="logo-placeholder">
