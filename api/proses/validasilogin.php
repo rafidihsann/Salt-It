@@ -16,12 +16,16 @@
 
         if ($row['role'] === 'owner') {
         header("location:../page/dashboard_owner.php");
+        exit();
         } elseif ($row['role'] === 'inventaris') {
             header("location:../page/dashboard_inventaris.php");
+            exit();
         } elseif ($row['role'] === 'online') {
             header("location:../page/dashboard_online.php");
+            exit();
         } elseif ($row['role'] === 'offline') {
             header("location:../page/dashboard_offline.php");
+            exit();
         }
     }
 

@@ -1,4 +1,8 @@
 <?php
+if (!is_dir('/tmp/sessions')) {
+    mkdir('/tmp/sessions', 0777, true);
+}
+session_save_path('/tmp/sessions');
 $host     = getenv('MYSQLHOST');
 $user     = getenv('MYSQLUSER');
 $password = getenv('MYSQLPASSWORD');

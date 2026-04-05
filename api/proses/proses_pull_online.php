@@ -24,4 +24,5 @@ foreach ($order_baru as $order) {
 
 // Kembali ke halaman
 header("location:../page/dashboard_online.php?status=pull_success");
+exit();
 ?>

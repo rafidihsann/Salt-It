@@ -32,6 +32,7 @@ if ($aksi == "tambah") {
 // Eksekusi Query
 if (mysqli_query($connect, $query)) {
     header("location: ../page/kelolaakun.php");
+    exit();
 } else {
     echo "Gagal memproses data: " . mysqli_error($connect);
 }

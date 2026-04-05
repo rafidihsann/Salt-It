@@ -26,15 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_transaksi'])) {
         if ($update) {
             // Berhasil, arahkan kembali ke halaman online
             header("location:../page/dashboard_online.php?status=shipped_ok");
+            exit();
         } else {
             echo "Gagal memperbarui status: " . mysqli_error($connect);
         }
     } else {
         // Sudah berstatus SHIPPED
         header("location:../page/dashboard_online.php?status=already_shipped");
+        exit();
     }
 } else {
     // Jika diakses tanpa POST, kembalikan ke dashboard
     header("location:../page/dashboard_online.php");
+    exit();
 }
 ?>
