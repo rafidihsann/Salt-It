@@ -64,7 +64,7 @@
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
                                 
-                                <a href="../proses/hapus_user.php?id=<?php echo $row['id']; ?>" 
+                                <a href="../proses/hapusakun.php?id=<?php echo $row['id']; ?>" 
                                 class="action-btn btn-delete" 
                                 onclick="return confirm('Hapus akun ini?')">
                                     <i class="bi bi-trash"></i>
