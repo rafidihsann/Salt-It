@@ -45,9 +45,15 @@
                 <?php
                 if(isset($_GET['pesan'])) {
                 if ($_GET['pesan'] == "gagal") {
-                    ?><div class="alert alert-warning my-3" role="alert">
-                        Username atau password salah!
-                    </div><?php
+                    ?>
+                    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            <div class="small">
+                                Email atau password salah!
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                <?php
                 } }
                 ?>
             </form>

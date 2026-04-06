@@ -69,6 +69,7 @@
 
         <!-- Tombol Logout -->
         <a href="../login/logout.php" class="menu-card mt-4" style="border-style: dashed;">
+            onclick="return confirm('Apakah Anda yakin ingin keluar dari aplikasi?')">
             <div class="icon-circle bg-logout">
                 <i class="bi bi-box-arrow-right"></i>
             </div>
