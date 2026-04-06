@@ -1,12 +1,6 @@
 <?php
 include __DIR__ . '/../koneksi.php';
 
-// Pastikan hanya user yang login yang bisa akses
-if (!isset($_SESSION['status'])) {
-    header("location:../login/login.php");
-    exit();
-}
-
 // Menangani Update Status SHIPPED (PBI033)
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_transaksi'])) {
     $id = mysqli_real_escape_string($connect, $_POST['id_transaksi']);
