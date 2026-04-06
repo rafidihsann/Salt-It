@@ -61,7 +61,7 @@
             <span class="fs-5">Butir</span>
         </div>
 
-        <div class="stok-card text-center">
+        <div class="stok-card2 text-center">
             <span class="opacity-75 small">Total Butir Tidak Layak</span>
             <h1 class="display-4 fw-bold m-0"><?php echo number_format($total_tidak_lolos, 0, ',', '.'); ?></h1>
             <span class="fs-5">Butir</span>
