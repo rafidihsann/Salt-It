@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    include __DIR__ . '/../koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
