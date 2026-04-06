@@ -1,12 +1,6 @@
 <?php
 include __DIR__ . '/../koneksi.php';
 
-// Cek login
-if (!isset($_SESSION['status'])) {
-    header("location:../login/login.php");
-    exit();
-}
-
 // 1. Tangkap Data dari Form
 $target     = $_POST['target']; // 'online' atau 'offline'
 $jumlah     = (int)$_POST['jumlah'];

@@ -23,8 +23,6 @@
             background-color: var(--soft-bg);
             color: #334155;
         }
-
-        
     </style>
 </head>
 <body>
