@@ -80,8 +80,12 @@
     ?>
 
     <nav class="top-nav no-print container-mobile">
-            <div class="brand-name">SALT IT <span class="text-primary">OWNER</span></div>
-        </nav>
+        <a href="../login/login.php" class="btn-back">
+            <i class="bi bi-arrow-left"></i>
+            <span>Keluar</span>
+        </a>
+        <h6 class="m-0 fw-bold ms-3">OWNER</h6>
+    </nav>
 \
     <div class="container-mobile">
         <!-- Export -->
