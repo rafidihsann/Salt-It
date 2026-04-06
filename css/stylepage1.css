@@ -28,7 +28,7 @@
 /* Main Stock Card */
 .stok-card {
     background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
-    color: white;
+    color: rgb(7, 0, 32);
     border-radius: 1.5rem;
     padding: 2rem 1.5rem;
     margin: 1.25rem;
