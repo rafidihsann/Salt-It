@@ -113,6 +113,8 @@
                             <select name="role" id="userRole" class="form-select form-control-lg" required>
                                 <option value="inventaris">Inventaris (Staf)</option>
                                 <option value="owner">Owner (Pemilik)</option>
+                                <option value="offline">Admin Offline</option>
+                                <option value="online">Admin Online</option>
                             </select>
                         </div>
 
