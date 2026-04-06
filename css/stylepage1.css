@@ -27,8 +27,18 @@
 
 /* Main Stock Card */
 .stok-card {
-    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
-    color: rgb(7, 0, 32);
+    background-color: #1e293b;
+    color: rgb(255, 255, 255);
+    border-radius: 1.5rem;
+    padding: 2rem 1.5rem;
+    margin: 1.25rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.15);
+}
+
+.stok-card2 {
+    background-color: #3b0101;
+    color: rgb(255, 255, 255);
     border-radius: 1.5rem;
     padding: 2rem 1.5rem;
     margin: 1.25rem;
