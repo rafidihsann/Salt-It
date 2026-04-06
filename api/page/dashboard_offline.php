@@ -47,7 +47,8 @@
     ?>
 
     <nav class="top-nav container-mobile">
-        <a href="../login/login.php" class="btn-back">
+        <a href="../login/login.php" class="btn-back"
+            onclick="return confirm('Apakah Anda yakin ingin keluar dari aplikasi?')">
             <i class="bi bi-arrow-left"></i>
             <span>Keluar</span>
         </a>

@@ -118,7 +118,8 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 py-3 rounded-4 fw-bold shadow-sm">
+                        <button type="submit" class="btn btn-primary w-100 py-3 rounded-4 fw-bold shadow-sm"
+                            onclick="return confirm('Apakah Anda yakin ingin  menyimpan perubahan?')">
                             Simpan Perubahan
                         </button>
                     </form>

@@ -97,7 +97,8 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary text-white shadow-sm container" id="btnSubmit">
+                    <button type="submit" class="btn btn-primary text-white shadow-sm container" id="btnSubmit"
+                        onclick="return confirm('Apakah Anda yakin ingin menyimpan?')">
                         <i class="bi bi-check-circle-fill me-2"></i> Konfirmasi Produksi
                     </button>
                 </form>

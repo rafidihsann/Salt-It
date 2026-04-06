@@ -152,7 +152,10 @@
                         <input type="date" name="waktu" class="form-control form-control-lg" value="<?php echo date('Y-m-d'); ?>">
                     </div>
                     
-                    <button type="submit" id="btnSubmit" class="btn btn-primary w-100 py-3 rounded-4 fw-bold">Simpan Data</button>
+                    <button type="submit" id="btnSubmit" class="btn btn-primary w-100 py-3 rounded-4 fw-bold"
+                        onclick="return confirm('Apakah Anda yakin ingin menyimpan?')">
+                        Simpan Data
+                    </button>
                 </form>
             </div>
         </div>
