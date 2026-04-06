@@ -78,8 +78,8 @@
         </a>
         <h6 class="m-0 fw-bold ms-3 text-truncate">Input Alokasi Stok</h6>
         <div class="ms-auto position-relative d-inline-block me-2">
-            <i class="bi bi-bell fs-4"></i>
             <?php if ($ready_stock <= $batas_kritis): ?>
+                <i class="bi bi-bell fs-4"></i>
                 <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
                     <span class="visually-hidden">New alerts</span>
                 </span>
