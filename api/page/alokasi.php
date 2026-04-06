@@ -71,13 +71,13 @@
         $batas_kritis = 100;
     ?>
 
-    <nav class="top-nav container-mobile">
+    <nav class="top-nav container-mobile d-flex align-items-center">
         <a href="dashboard_inventaris.php" class="btn-back">
             <i class="bi bi-arrow-left"></i>
             <span>Kembali</span>
         </a>
-        <h6 class="m-0 fw-bold ms-3">Input Alokasi Stok Telur Asin</h6>
-        <div class="position-relative d-inline-block me-3">
+        <h6 class="m-0 fw-bold ms-3 text-truncate">Input Alokasi Stok</h6>
+        <div class="ms-auto position-relative d-inline-block me-2">
             <i class="bi bi-bell fs-4"></i>
             <?php if ($ready_stock <= $batas_kritis): ?>
                 <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
