@@ -9,12 +9,11 @@ $waktu      = $_POST['waktu'];
 
 // 2. Validasi Input Dasar
 if ($jumlah <= 0) {
-    echo "<script>alert('Jumlah alokasi harus lebih dari 0!'); window.history.back();</script>";
+    echo "<script>alert('Waduh! Jumlah alokasi harus lebih dari 0 ya.'); window.history.back();</script>";
     exit();
 }
 
-// 3. Verifikasi Sisa Stok Siap Alokasi (Safety Check di Sisi Server)
-// Rumus: Total Produksi - (Total Alokasi Online + Total Alokasi Offline)
+// 3. Verifikasi Sisa Stok Siap Alokasi
 $q_prod = mysqli_query($connect, "SELECT SUM(jumlah) as total FROM produksi");
 $total_produksi = mysqli_fetch_assoc($q_prod)['total'] ?? 0;
 
@@ -27,11 +26,11 @@ $total_offline = mysqli_fetch_assoc($q_off)['total'] ?? 0;
 $ready_stock = $total_produksi - ($total_online + $total_offline);
 
 if ($jumlah > $ready_stock) {
-    echo "<script>alert('Gagal! Stok tidak mencukupi. Sisa: $ready_stock'); window.history.back();</script>";
+    echo "<script>alert('Gagal! Stok tidak mencukupi. Sisa stok saat ini: $ready_stock butir'); window.history.back();</script>";
     exit();
 }
 
-// 4. Tentukan Tabel Tujuan Berdasarkan Target
+// 4. Tentukan Tabel Tujuan
 if ($target === 'online') {
     $query = "INSERT INTO alokasi_online (jumlah, keterangan, waktu) VALUES ('$jumlah', '$keterangan', '$waktu')";
 } elseif ($target === 'offline') {
@@ -41,11 +40,16 @@ if ($target === 'online') {
     exit();
 }
 
-// 5. Eksekusi Query
+// 5. Eksekusi Query dengan Error Handling Alert
 if (mysqli_query($connect, $query)) {
     header("Location: ../page/dashboard_inventaris.php");
     exit();
 } else {
-    echo "Gagal memproses alokasi: " . mysqli_error($connect);
+    // Di sini kita ubah jadi alert juga
+    $error = mysqli_real_escape_string($connect, mysqli_error($connect));
+    echo "<script>
+        alert('Gagal memproses alokasi ke database: $error');
+        window.history.back();
+    </script>";
 }
 ?>

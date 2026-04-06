@@ -7,35 +7,48 @@ $jumlah = (int) $_POST['jumlah'];
 $keterangan = mysqli_real_escape_string($connect, $_POST['keterangan']);
 $waktu = $_POST['waktu'];
 
-// Menangkap input tidak_lolos hanya jika jenisnya 'masuk'
-// Jika 'keluar', kita set otomatis ke 0 agar konsisten di database
 $tidak_lolos = ($jenis === 'masuk') ? (int) $_POST['tidak_lolos'] : 0;
 
-
+// Validasi Jumlah
 if ($jumlah <= 0) {
-    echo "Jumlah harus lebih dari 0.";
+    echo "<script>
+        alert('Waduh! Jumlah telur harus lebih dari 0 ya.');
+        window.history.back();
+    </script>";
     exit;
 }
 
+// Validasi Jenis
 if ($jenis !== 'masuk' && $jenis !== 'keluar') {
-    echo "Jenis tidak valid.";
+    echo "<script>
+        alert('Jenis transaksi tidak valid!');
+        window.history.back();
+    </script>";
     exit;
 }
 
-// Validasi Logika QC: Tidak mungkin telur rusak lebih banyak dari telur yang datang
+// Validasi Logika QC
 if ($jenis === 'masuk' && $tidak_lolos > $jumlah) {
-    echo "Error: Jumlah tidak lolos QC tidak boleh melebihi total telur yang masuk.";
+    echo "<script>
+        alert('Error: Jumlah tidak lolos QC tidak boleh lebih banyak dari total telur yang datang.');
+        window.history.back();
+    </script>";
     exit;
 }
 
+// Query Input
 $query = "INSERT INTO stokmentah (jumlah, tidak_lolos, jenis, keterangan, waktu) 
           VALUES ('$jumlah', '$tidak_lolos', '$jenis', '$keterangan', '$waktu')";
 
 if (mysqli_query($connect, $query)) {
-    // Kembali ke halaman inventaris dengan status sukses
     header("Location: ../page/telurmentah.php");
     exit;
 } else {
-    echo "Gagal menyimpan data: " . mysqli_error($connect);
+    // Error Database pun kita kasih alert biar seragam
+    $error = mysqli_error($connect);
+    echo "<script>
+        alert('Gagal menyimpan data ke database: $error');
+        window.history.back();
+    </script>";
 }
 ?>
