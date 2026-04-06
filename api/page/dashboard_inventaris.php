@@ -37,7 +37,7 @@
                 <i class="bi bi-box-seam"></i>
             </div>
             <div class="menu-text">
-                <h6>Kelola Stok Telur</h6>
+                <h6>Kelola Stok Telur Bebek</h6>
                 <p>Input stok masuk & produksi harian</p>
             </div>
             <i class="bi bi-chevron-right ms-auto text-muted"></i>

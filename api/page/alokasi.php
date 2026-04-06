@@ -54,6 +54,21 @@
 
         // Stok yang saat ini ada di Toko Offline (Alokasi - Terjual)
         $current_offline_stock = $total_alloc_offline - $total_sold_offline;
+
+        // 1. Hitung Stok Siap Alokasi
+        $q_prod = mysqli_query($connect, "SELECT SUM(jumlah) as total FROM produksi");
+        $total_produksi = mysqli_fetch_assoc($q_prod)['total'] ?? 0;
+
+        $q_on = mysqli_query($connect, "SELECT SUM(jumlah) as total FROM alokasi_online");
+        $total_online = mysqli_fetch_assoc($q_on)['total'] ?? 0;
+
+        $q_off = mysqli_query($connect, "SELECT SUM(jumlah) as total FROM alokasi_offline");
+        $total_offline = mysqli_fetch_assoc($q_off)['total'] ?? 0;
+
+        $ready_stock = $total_produksi - ($total_online + $total_offline);
+
+        // 2. Tentukan batas kritis
+        $batas_kritis = 100;
     ?>
 
     <nav class="top-nav container-mobile">
@@ -62,6 +77,14 @@
             <span>Kembali</span>
         </a>
         <h6 class="m-0 fw-bold ms-3">Input Alokasi Stok Telur Asin</h6>
+        <div class="position-relative d-inline-block me-3">
+            <i class="bi bi-bell fs-4"></i>
+            <?php if ($ready_stock <= $batas_kritis): ?>
+                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                    <span class="visually-hidden">New alerts</span>
+                </span>
+            <?php endif; ?>
+        </div>
     </nav>
 
     <div class="container-mobile">
