@@ -1,6 +1,5 @@
 <?php 
     include __DIR__ . '/../koneksi.php';
-    include __DIR__ . '/../proses/auth.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">

@@ -1,11 +1,5 @@
 <?php 
     include __DIR__ . '/../koneksi.php';
-    include __DIR__ . '/../proses/auth.php';
-
-    if ($_SESSION['role'] !== 'owner') {
-        echo "<script>alert('Eits! Ini wilayah Owner.'); window.location='../login.php';</script>";
-        exit();
-    }
 ?>
 <!DOCTYPE html>
 <html lang="id">

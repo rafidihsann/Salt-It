@@ -1,11 +1,5 @@
 <?php 
     include __DIR__ . '/../koneksi.php';
-    include __DIR__ . '/../proses/auth.php';
-
-    if ($_SESSION['role'] !== 'inventaris' && $_SESSION['role'] !== 'owner') {
-        echo "<script>alert('Halaman ini khusus bagian Inventaris!'); window.location='../login.php';</script>";
-        exit();
-    }
 ?>
 <!DOCTYPE html>
 <html lang="id">
