@@ -50,9 +50,9 @@
         <a href="../login/login.php" class="btn-back"
             onclick="return confirm('Apakah Anda yakin ingin keluar dari aplikasi?')">
             <i class="bi bi-arrow-left"></i>
-            <span>Keluar</span>
+            <span>Logout</span>
         </a>
-        <h6 class="m-0 fw-bold ms-3">Kasir Toko Offline</h6>
+        <h6 class="m-0 fw-bold ms-3">Admin Toko Online</h6>
     </nav>
 
     <div class="container-mobile">

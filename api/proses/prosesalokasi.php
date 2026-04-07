@@ -42,7 +42,7 @@ if ($target === 'online') {
 
 // 5. Eksekusi Query dengan Error Handling Alert
 if (mysqli_query($connect, $query)) {
-    header("Location: ../page/dashboard_inventaris.php");
+    header("Location: ../page/alokasi.php");
     exit();
 } else {
     // Di sini kita ubah jadi alert juga

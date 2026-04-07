@@ -74,7 +74,7 @@
                     <i class="bi bi-box-arrow-right"></i>
                 </div>
                 <div class="menu-text">
-                    <h6 class="text-danger">Keluar Aplikasi</h6>
+                    <h6 class="text-danger">Logout</h6>
                     <p>Selesaikan sesi kerja Anda</p>
                 </div>
         </a>

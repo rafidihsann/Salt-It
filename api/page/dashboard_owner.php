@@ -83,7 +83,7 @@
         <a href="../login/login.php" class="btn-back"
             onclick="return confirm('Apakah Anda yakin ingin keluar dari aplikasi?')">
             <i class="bi bi-arrow-left"></i>
-            <span>Keluar</span>
+            <span>Logout</span>
         </a>
         <h6 class="m-0 fw-bold ms-3">OWNER</h6>
     </nav>

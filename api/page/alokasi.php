@@ -172,7 +172,8 @@
                             <input type="date" name="waktu" class="form-control form-control-lg" value="<?php echo date('Y-m-d'); ?>" required>
                         </div>
 
-                        <button type="submit" class="btn-submit shadow-sm">
+                        <button type="submit" class="btn-submit shadow-sm"
+                            onclick="return confirm('Apakah Anda yakin ingin menyimpan?')">
                             Konfirmasi Alokasi
                         </button>
                     </form>

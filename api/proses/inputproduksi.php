@@ -43,7 +43,7 @@ if (mysqli_query($connect, $query_produksi)) {
     
     if (mysqli_query($connect, $query_stok)) {
         // Berhasil semua
-        header("Location: ../page/dashboard_inventaris.php");
+        header("Location: ../page/produksi.php");
         exit;
     } else {
         echo "Gagal mengurangi stok mentah: " . mysqli_error($connect);
