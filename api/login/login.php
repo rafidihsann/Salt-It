@@ -1,3 +1,19 @@
+<?php 
+    include __DIR__ . '/../koneksi.php';
+    if (isset($_SESSION['status']) && $_SESSION['status'] == "login") {
+    if ($_SESSION['role'] === 'owner') {
+        header("location:../page/dashboard_owner.php");
+    } elseif ($_SESSION['role'] === 'inventaris') {
+        header("location:../page/dashboard_inventaris.php");
+    } elseif ($_SESSION['role'] === 'online') {
+        header("location:../page/dashboard_online.php");
+    } elseif ($_SESSION['role'] === 'offline') {
+        header("location:../page/dashboard_offline.php");
+    }
+    exit();
+}
+?>
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
