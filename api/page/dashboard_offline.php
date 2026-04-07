@@ -1,5 +1,11 @@
 <?php 
     include __DIR__ . '/../koneksi.php';
+    include __DIR__ . '/../proses/auth.php';
+
+    if ($_SESSION['role'] !== 'offline' && $_SESSION['role'] !== 'owner') {
+        echo "<script>alert('Halaman ini khusus bagian Offline!'); window.location='../login.php';</script>";
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="id">
