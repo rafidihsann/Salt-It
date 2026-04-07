@@ -29,6 +29,6 @@
     }
 
     else {
-            header("location:login.php?pesan=gagal");
+            header("location:../login/login.php?pesan=gagal");
         }
 ?>
