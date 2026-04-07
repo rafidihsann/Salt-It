@@ -8,7 +8,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == "login") {
     exit();
 } else {
     // Kalau belum login, lempar ke folder api
-    header("location: api/login.php");
+    header("location: /api/login.php");
     exit();
 }
 ?>
