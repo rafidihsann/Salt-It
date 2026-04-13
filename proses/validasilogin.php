@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include __DIR__ . '/../koneksi.php';
 
     $email = $_POST['email'];

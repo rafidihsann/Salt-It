@@ -1,3 +1,20 @@
+<?php
+	session_start();
+
+    // Kalau ternyata dia udah login, jangan kasih masuk halaman login lagi
+    if (isset($_SESSION['status']) && $_SESSION['status'] == "login") {
+        if ($_SESSION['role'] == "owner") {
+            header("location:../page/dashboard_owner.php");
+        } elseif ($_SESSION['role'] == "inventaris") {
+            header("location:../page/dashboard_inventaris.php");
+        } elseif ($_SESSION['role'] == "online") {
+            header("location:../page/dashboard_online.php");
+        } elseif ($_SESSION['role'] == "offline") {
+            header("location:../page/dashboard_offline.php");
+        }
+        exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -38,24 +55,33 @@
                         <input type="password" name="password" class="form-control has-icon" required>
                     </div>
                 </div>
+                    <?php
+                    if(isset($_GET['pesan'])) {
+                    if ($_GET['pesan'] == "gagal") {
+                        ?>
+                        <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-2 py-2"></i>
+                                <div class="small">
+                                    Email atau password salah!
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                    <?php
+                    } elseif ($_GET['pesan'] == "hak_akses") {
+                        ?>
+                        <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-2 py-2"></i>
+                                <div class="small">
+                                    Kamu gak punya akses!
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+					<?php
+                    } }
+                    ?>
                 <button type="submit" class="btn btn-primary btn-login w-100">
                     Masuk Sekarang
                 </button>
-
-                <?php
-                if(isset($_GET['pesan'])) {
-                if ($_GET['pesan'] == "gagal") {
-                    ?>
-                    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
-                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                            <div class="small">
-                                Email atau password salah!
-                            </div>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                <?php
-                } }
-                ?>
             </form>
         </div>
     </div>

@@ -1,5 +1,10 @@
 <?php 
     include __DIR__ . '/../koneksi.php';
+	include __DIR__ . '/../proses/cek_login.php';
+	if ($_SESSION['role'] !== 'inventaris' && $_SESSION['role'] !== 'owner') {
+    header("location:../login/login.php?pesan=hak_akses");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">

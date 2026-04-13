@@ -1,5 +1,10 @@
 <?php 
     include __DIR__ . '/../koneksi.php';
+	include __DIR__ . '/../proses/cek_login.php';
+	if ($_SESSION['role'] !== 'inventaris' && $_SESSION['role'] !== 'owner') {
+    header("location:../login/login.php?pesan=hak_akses");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -35,7 +40,7 @@
     ?>
 
     <nav class="top-nav container-mobile">
-        <a href="dashboard_inventaris.php" class="btn-back">
+        <a href="telurmentah.php" class="btn-back">
             <i class="bi bi-arrow-left"></i>
             <span>Kembali</span>
         </a>
